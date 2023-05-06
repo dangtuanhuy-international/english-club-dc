@@ -11,6 +11,7 @@ on:
 
 jobs:
   build:
+    name: 'Continue Intergation'
     runs-on: windows-latest
 
     steps:
@@ -41,8 +42,9 @@ jobs:
           path: release.zip
 
   deploy:
+    name: 'Continue Deployment'
     runs-on: ubuntu-latest
-    needs: build
+    needs: build    
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
@@ -60,4 +62,4 @@ jobs:
           app-name: 'bbvenglishclub'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8A56F69B7AF645A4B85FB53AF8198F93 }}
-          package: .
+          package: release.zip
