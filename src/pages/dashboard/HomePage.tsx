@@ -1,3 +1,4 @@
+import { TextField } from "@mui/material";
 
 
 const HomePage = () => {
@@ -15,7 +16,7 @@ const HomePage = () => {
             <label htmlFor="name">
               <i className="fa fa-volume-up"></i>
             </label>
-            <input
+            <TextField
               id="name"
               className="inp"
               placeholder="Kindly type out what you are currently listening to."
